@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Pink</title>
+    <style>
+        /* Mengatur latar belakang halaman menjadi warna pink */
+        body {
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Style untuk konten di tengah halaman */
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style untuk tombol */
+        .button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #ff85c0;
+        }
+        #movingButton {
+            position: relative;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>i have crush on you!</h1>
+        <p>want to be my girlfriend???</p>
+        <button class="button" onclick="alert('YESS KITA JADIAN!!!')">yess!!</button>
+        <button class="button no" id="movingButton" onclick="moveButton()">No</button>
+    </div>
+    <script>
+        function moveButton() {
+            const button = document.getElementById('movingButton');
+            const container = document.querySelector('.container');
+
+            // Mendapatkan ukuran container dan tombol
+            const containerRect = container.getBoundingClientRect();
+            const buttonRect = button.getBoundingClientRect();
+
+            // Menghitung posisi acak baru untuk tombol, memastikan tombol tetap dalam container
+            const maxX = containerRect.width - buttonRect.width;
+            const maxY = containerRect.height - buttonRect.height;
+
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+
+            // Memindahkan tombol ke posisi baru
+            button.style.left = `${newX}px`;
+            button.style.top = `${newY}px`;
+        }
+    </script>
+</body>
+</html>
+
